@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,5 +36,13 @@ public class ArtigoController {
 	public ResponseEntity<Collection<Artigo>> buscarTodosArtigos(){
 		Collection<Artigo> artigosBuscados = artigoService.buscarTodos();
 		return new ResponseEntity<Collection<Artigo>>(artigosBuscados, HttpStatus.OK);
+	}
+	
+	@RequestMapping(method=RequestMethod.GET,
+			value="/artigos/{id}", 
+			produces=MediaType.APPLICATION_JSON_VALUE)	
+	public ResponseEntity<Artigo> buscarArtigo(@PathVariable Integer id){
+		Artigo artigo = artigoService.buscarArtigo(id); 
+		return new ResponseEntity<Artigo>(artigo, HttpStatus.OK);
 	}
 }

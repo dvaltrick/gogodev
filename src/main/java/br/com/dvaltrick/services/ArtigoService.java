@@ -22,4 +22,8 @@ public class ArtigoService {
 		return artigoRepository.findAll();
 	}
 
+	public Artigo buscarArtigo(Integer id) {
+		return artigoRepository.findOne(id);
+	}
+
 }

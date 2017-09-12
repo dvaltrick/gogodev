@@ -7,6 +7,21 @@ appGoGoDev.config(function ($routeProvider,$locationProvider){
                             templateUrl:"views/lista-artigos.html",
                             controller:"artigosController"
                         })
+                    .when("/artigos/:artigoId", 
+                        {
+                            templateUrl:"views/ler-artigo.html",
+                            controller:"lerArtigosController"
+                        })
+                    .when("/novoartigo", 
+                        {
+                            templateUrl:"views/novo-artigo.html",
+                            controller:"novoArtigoController"
+                        })
+                    .when("/",
+                        {
+                            templateUrl:"views/lista-artigos.html",
+                            controller:"artigosController"
+                        })
                     .otherwise({redirectTo:"/"});
 
     $locationProvider.html5Mode(true);

@@ -1,0 +1,15 @@
+<form novalidate name="frmArtigo">
+    <div class="form-group">
+        <label class="form-control-label" for="titulo">Título</label>
+        <input type="text" class="form-control" ng-model="novoArtigo.titulo" 
+               id="titulo" required/>
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" for="texto">Texto</label>
+        <textarea class="form-control" ng-model="novoArtigo.texto" id="texto" rows="10" required></textarea>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit" ng-disabled="frmArtigo.$invalid" ng-click="salvarArtigo()">Salvar</button>
+        <a class="btn btn-secondary" href="/artigos" role="button">Cancelar</a>
+    </div>
+</form>
